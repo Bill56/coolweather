@@ -37,7 +37,7 @@ public class AutoUpdateService extends Service {
 		// 休眠8小时候发送广播给自动更新广播，通知其唤醒重新启动服务
 		long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
 		Intent i = new Intent(this, AutoUpdateReceiver.class);
-		PendingIntent pi = PendingIntent.getBroadcast(this, 0, intent, 0);
+		PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
 		manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
 		return super.onStartCommand(intent, flags, startId);
 	}
